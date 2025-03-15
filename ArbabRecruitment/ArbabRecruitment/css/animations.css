@@ -1,0 +1,305 @@
+/*-------------------------------------------*\
+  Arbab Jobs - Animations Stylesheet
+  
+  This file contains all animations and 
+  transition effects used throughout the site.
+\*-------------------------------------------*/
+
+/*-------------------------------------------*\
+  Fade Animations
+\*-------------------------------------------*/
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay variants */
+.delay-1 {
+    transition-delay: 0.2s;
+}
+
+.delay-2 {
+    transition-delay: 0.4s;
+}
+
+.delay-3 {
+    transition-delay: 0.6s;
+}
+
+.delay-4 {
+    transition-delay: 0.8s;
+}
+
+.delay-5 {
+    transition-delay: 1s;
+}
+
+/*-------------------------------------------*\
+  Slide Animations
+\*-------------------------------------------*/
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.slide-in-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.slide-in-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/*-------------------------------------------*\
+  Scale Animations
+\*-------------------------------------------*/
+.scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scale-in.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/*-------------------------------------------*\
+  Text Reveal Animation
+\*-------------------------------------------*/
+.reveal-text {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.reveal-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    animation: revealText 1.5s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+@keyframes revealText {
+    0% {
+        transform: translateX(-100%);
+    }
+    40%, 60% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/*-------------------------------------------*\
+  Pulse Animation
+\*-------------------------------------------*/
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/*-------------------------------------------*\
+  Bounce Animation
+\*-------------------------------------------*/
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/*-------------------------------------------*\
+  Typing Animation
+\*-------------------------------------------*/
+.typing {
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid var(--primary-color);
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color) }
+}
+
+/*-------------------------------------------*\
+  Float Animation
+\*-------------------------------------------*/
+.float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/*-------------------------------------------*\
+  Shake Animation
+\*-------------------------------------------*/
+.shake {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-4px); }
+    40%, 60% { transform: translateX(4px); }
+}
+
+/*-------------------------------------------*\
+  Spinner Animation
+\*-------------------------------------------*/
+.spinner {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/*-------------------------------------------*\
+  Flip Animation
+\*-------------------------------------------*/
+.flip {
+    backface-visibility: visible !important;
+    animation: flip 2s ease infinite;
+}
+
+@keyframes flip {
+    0% { transform: perspective(400px) rotateY(0); }
+    40% { transform: perspective(400px) rotateY(170deg); }
+    50% { transform: perspective(400px) rotateY(190deg); }
+    80% { transform: perspective(400px) rotateY(360deg); }
+    100% { transform: perspective(400px) rotateY(360deg); }
+}
+
+/*-------------------------------------------*\
+  Testimonial Slider Animation
+\*-------------------------------------------*/
+.testimonial-track {
+    transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-card {
+    transition: opacity 0.3s ease;
+}
+
+/*-------------------------------------------*\
+  Counter Animation
+\*-------------------------------------------*/
+.counter {
+    display: inline-block;
+}
+
+/*-------------------------------------------*\
+  Button Hover Animation
+\*-------------------------------------------*/
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: inherit;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: -1;
+}
+
+.btn-primary:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/*-------------------------------------------*\
+  Service Card Animation
+\*-------------------------------------------*/
+.service-card:hover .service-icon {
+    animation: pulse 1.5s infinite;
+}
+
+/*-------------------------------------------*\
+  Social Links Animation
+\*-------------------------------------------*/
+.social-link {
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-5px) rotate(360deg);
+}
+
+/*-------------------------------------------*\
+  Menu Toggle Animation
+\*-------------------------------------------*/
+.menu-toggle span {
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/*-------------------------------------------*\
+  Accordion Animation
+\*-------------------------------------------*/
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px;
+}
